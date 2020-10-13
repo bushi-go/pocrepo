@@ -1,0 +1,50 @@
+{
+  "npmScope": "pocrepo",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "fooclient": {
+      "tags": []
+    },
+    "fooclient-e2e": {
+      "tags": [],
+      "implicitDependencies": ["fooclient"]
+    },
+    "barclient": {
+      "tags": []
+    },
+    "barclient-e2e": {
+      "tags": [],
+      "implicitDependencies": ["barclient"]
+    },
+    "commonapi": {
+      "tags": []
+    },
+    "components": {
+      "tags": []
+    },
+    "model": {
+      "tags": []
+    }
+  }
+}
