@@ -13,7 +13,8 @@
 	"extensions": [
 		"dbaeumer.vscode-eslint",
         "ms-vscode.vscode-typescript-tslint-plugin",
-        "ms-vsliveshare.vsliveshare"
+        "ms-vsliveshare.vsliveshare",
+        "nrwl.angular-console"
 	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
