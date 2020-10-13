@@ -31,3 +31,6 @@ RUN if [ "$USER_GID" != "1000" ] || [ "$USER_UID" != "1000" ]; then \
 # RUN apt-get update \
 #     && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
+
+# installing nx globally (https://nx.dev/latest/angular/cli/overview#installing-the-cli) 
+RUN npm install -g nx
