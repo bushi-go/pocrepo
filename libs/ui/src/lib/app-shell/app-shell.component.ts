@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FooterConfig } from '@pocrepo/ui';
 import { DeviceDetectorService } from 'ngx-device-detector';
-
-import { FooterConfig } from '../footer/footer.component';
 
 
 export interface AppShellConfig{
@@ -40,7 +39,7 @@ export class AppShellComponent implements OnInit {
   }
 
   navigate(path){
-    this.router.navigate(path);
+    this.router.navigate([path]);
   }
 
   showSecondaryMenu(){

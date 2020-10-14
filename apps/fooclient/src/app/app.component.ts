@@ -13,7 +13,7 @@ export class AppComponent {
         app: "Foo",
         primaryActions:[
             {label: "First action", path: "/", icon: "face", color: "secondary"},
-            {label: "Second", path: "/", icon: "home", color: "secondary"}
+            {label: "Second action", path: "/", icon: "home", color: "secondary"}
         ],
         secondaryActions:[
             {label: "First action", path: "/", icon: "face", color: "secondary"},

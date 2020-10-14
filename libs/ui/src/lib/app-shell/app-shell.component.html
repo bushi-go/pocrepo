@@ -39,9 +39,9 @@
 <!-- Mobile toolbar -->
 <ng-template #mobileOrTabletBar>
     <mat-toolbar [color]="config && (config.toolbarBgColor ||  'primary')" [ngClass]="{ 'default-header' : !config }">
-        <mat-button mat-icon-button (click)="showSecondaryMenu()">
+        <button mat-icon-button (click)="showSecondaryMenu()">
             <mat-icon>menu</mat-icon>
-        </mat-button>
+        </button>
             <span class="spacer"></span>
             <ng-container *ngFor="let action of config.primaryActions">
                 <button *ngIf="!!action.icon" mat-icon-button color="secondary">

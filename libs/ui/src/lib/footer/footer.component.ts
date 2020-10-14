@@ -31,6 +31,6 @@ export class FooterComponent implements OnInit {
 
   navigate(path){
       console.log("Navigated to "+path);
-      this.router.navigate(path);
+      this.router.navigate([path]);
   }
 }
