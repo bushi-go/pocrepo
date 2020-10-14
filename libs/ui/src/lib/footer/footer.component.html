@@ -1,0 +1,23 @@
+<mat-toolbar [color]="config && config.backgroundColor ? config.backgroundColor : 'primary'" class="footer">
+    <ng-container *ngIf="config && config.columns">
+        <div *ngFor="let column of config.columns" class="footer-column" [ngClass]="{'column': column.orientation=='column', 'row': column.orientation != 'column'}">
+            <ng-container *ngFor="let link of column.links">
+                <ng-container *ngTemplateOutlet="link && !!link.url ? externalLink : internalLink; context: {$implicit:link}"></ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+</mat-toolbar>
+
+<ng-template #externalLink let-link>
+    <a [href]="link.url">
+        <img *ngIf="link.image" [src]="link.image" [alt]="link.label"/>
+        {{!link.image && link.label}}
+    </a>
+</ng-template>
+<ng-template #internalLink let-link>
+    <a (click)="navigate(link.path)" class="clickable">
+        <img *ngIf="link.image" [src]="link.image" [alt]="link.label"/>
+        {{!link.image && link.label}}
+    </a>
+</ng-template>
+

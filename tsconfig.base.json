@@ -16,8 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@pocrepo/components": ["libs/components/src/index.ts"],
-      "@pocrepo/model": ["libs/model/src/index.ts"]
+      "@pocrepo/model": ["libs/model/src/index.ts"],
+      "@pocrepo/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppShellConfig } from '@pocrepo/ui';
 
 @Component({
   selector: 'pocrepo-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'fooclient';
+      config: AppShellConfig = {
+        logo: "https://emoji.gg/assets/emoji/3239_pokerface.png",
+        toolbarBgColor: "primary",
+        app: "Foo",
+        primaryActions:[
+            {label: "First action", path: "/", icon: "face", color: "secondary"},
+            {label: "Second", path: "/", icon: "home", color: "secondary"}
+        ],
+        secondaryActions:[
+            {label: "First action", path: "/", icon: "face", color: "secondary"},
+            {label: "second action", path: "/", icon: "face", color: "secondary"}]
+    } 
 }
