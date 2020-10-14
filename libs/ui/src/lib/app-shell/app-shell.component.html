@@ -3,7 +3,7 @@
 <div class="app-container">
     <ng-content></ng-content>
 </div>
-<pocrepo-footer></pocrepo-footer>
+<pocrepo-footer [config]="footerConfig"></pocrepo-footer>
 
 <!--Desktop toolbar -->
 <ng-template #desktopBar>
@@ -39,6 +39,24 @@
 <!-- Mobile toolbar -->
 <ng-template #mobileOrTabletBar>
     <mat-toolbar [color]="config && (config.toolbarBgColor ||  'primary')" [ngClass]="{ 'default-header' : !config }">
-        <span>mobile toolbar</span>
+        <mat-button mat-icon-button (click)="showSecondaryMenu()">
+            <mat-icon>menu</mat-icon>
+        </mat-button>
+            <span class="spacer"></span>
+            <ng-container *ngFor="let action of config.primaryActions">
+                <button *ngIf="!!action.icon" mat-icon-button color="secondary">
+                    <mat-icon>{{action.icon}}</mat-icon>
+                </button>
+                <button *ngIf="!action.icon" color="secondary">
+                    {{action.label}}
+                </button>
+            </ng-container>
+
     </mat-toolbar>
+    <div *ngIf="showMenu" class="secondary-menu mat-app-background" >
+        <ng-container *ngFor="let action of config.secondaryActions">
+            <button mat-button (click)="navigate(action.path)">{{action.label}}</button>
+            <mat-divider></mat-divider>
+        </ng-container>
+    </div>
 </ng-template>
