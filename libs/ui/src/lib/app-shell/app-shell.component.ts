@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
+import { FooterConfig } from '../footer/footer.component';
+
 
 export interface AppShellConfig{
   app?: string;
@@ -25,6 +27,8 @@ export interface ToolBarAction{
 })
 export class AppShellComponent implements OnInit {
   @Input() config: AppShellConfig;
+  @Input() footerConfig: FooterConfig;
+  showMenu=false;
   constructor(private deviceDetector: DeviceDetectorService, private router: Router) { }
 
   ngOnInit(): void {
@@ -37,5 +41,9 @@ export class AppShellComponent implements OnInit {
 
   navigate(path){
     this.router.navigate(path);
+  }
+
+  showSecondaryMenu(){
+      this.showMenu = !this.showMenu;
   }
 }

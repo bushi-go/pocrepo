@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppShellConfig } from '@pocrepo/ui';
+import { AppShellConfig, FooterConfig } from '@pocrepo/ui';
 
 @Component({
   selector: 'pocrepo-root',
@@ -19,5 +19,26 @@ export class AppComponent {
     secondaryActions:[
         {label: "First action", path: "/", icon: "face", color: "secondary"},
         {label: "second action", path: "/", icon: "face", color: "secondary"}]
+}
+footerConfig: FooterConfig = {
+    backgroundColor: "primary",
+    columns:[
+        {
+            orientation: "column",
+            links: [
+                {label: "first link", path:"/" },
+                {label: "second link", url:"https://google.com"}
+        ]},
+        {   orientation: "column",
+            links: [
+                {label: "first link", path:"/" },
+                {label: "second link", url:"https://google.com"}    
+        ]},
+        {   orientation: "column",
+            links: [
+                {label: "first link", path:"/" },
+                {label: "second link", url:"https://google.com"}    
+        ]}
+    ]
 }
 }
