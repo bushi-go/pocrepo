@@ -3,7 +3,7 @@ module.exports = {
     '<rootDir>/apps/fooclient',
     '<rootDir>/apps/barclient',
     '<rootDir>/apps/commonapi',
-    '<rootDir>/libs/components',
     '<rootDir>/libs/model',
+    '<rootDir>/libs/ui',
   ],
 };

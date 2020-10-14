@@ -1,0 +1,36 @@
+.toolbar{
+    top: 0;
+}
+.default-header{
+    background-color: chocolate;
+}
+
+.app-container{
+    min-height: 75vh;
+}
+
+.spacer{
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.logo{
+    max-width: 100%;
+    height:auto;
+
+}
+
+.logo-container{
+    display: flex;
+    max-height: 6vh;
+    max-width: 4vw;
+    flex: 1 0 auto;
+    margin-top: 2vh; 
+    margin-right: 1vw; 
+    margin-left: 1vw;
+}
+
+.appbar{
+    max-width: 100%;
+    position: fixed;
+}

@@ -1,0 +1,44 @@
+<ng-container *ngTemplateOutlet="isMobileOrTablet() ? mobileOrTabletBar : desktopBar">
+</ng-container>
+<div class="app-container">
+    <ng-content></ng-content>
+</div>
+<pocrepo-footer></pocrepo-footer>
+
+<!--Desktop toolbar -->
+<ng-template #desktopBar>
+    <mat-toolbar [color]="config && (config.toolbarBgColor ||  'primary')" [ngClass]="{ 'default-header' : !config, 'toolbar':true }">
+        <mat-toolbar-row>
+            <div class="logo-container">
+                <img [src]="config && config.logo" class="logo" alt="Logo"/>
+            </div>
+            <span>{{config && config.app}}</span>
+            <span class="spacer"></span>
+            <ng-container *ngIf="!!config && !!config.primaryActions">
+                <ng-container *ngFor="let action of config.primaryActions"> 
+                    <button *ngIf="!!action.icon" mat-icon-button color="secondary">
+                        <mat-icon>{{action.icon}}</mat-icon>
+                    </button>
+                    <button *ngIf="!action.icon" color="secondary">
+                        {{action.label}}
+                    </button>
+                </ng-container>
+            </ng-container>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+            <span class="spacer"></span>
+            <nav mat-tab-nav-bar backgroundColor="primary"> 
+                <a mat-tab-link *ngFor="let action of config.secondaryActions" (click)="activePath = action.path; navigate(action.path);" [active]="activePath == action.path" color="secondary">
+                    {{action.label}}
+                </a>
+            </nav>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</ng-template>
+
+<!-- Mobile toolbar -->
+<ng-template #mobileOrTabletBar>
+    <mat-toolbar [color]="config && (config.toolbarBgColor ||  'primary')" [ngClass]="{ 'default-header' : !config }">
+        <span>mobile toolbar</span>
+    </mat-toolbar>
+</ng-template>
