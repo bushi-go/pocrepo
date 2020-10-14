@@ -9,10 +9,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppShellComponent } from './app-shell/app-shell.component';
 import { FooterComponent } from './footer/footer.component';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   imports: [CommonModule, MatToolbarModule, MatIconModule, MatButtonModule, MatTabsModule, MatDividerModule, MatMenuModule],
-  declarations: [AppShellComponent, FooterComponent],
-  exports: [AppShellComponent, FooterComponent]
+  declarations: [AppShellComponent, FooterComponent, MapComponent],
+  exports: [AppShellComponent, FooterComponent, MapComponent]
 })
 export class UiModule {}
