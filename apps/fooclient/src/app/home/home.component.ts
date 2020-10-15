@@ -1,9 +1,10 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Poi } from '@pocrepo/model';
-import { DeviceDetectorService } from 'ngx-device-detector';
-import { PoiService } from '../poi.service';
-import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 import { BottomSheetPoiDetailComponent } from '@pocrepo/ui';
+import { DeviceDetectorService } from 'ngx-device-detector';
+
+import { PoiService } from '../poi.service';
 
 @Component({
   selector: 'pocrepo-home',
@@ -21,12 +22,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
       this.poiService.getAllPoi().subscribe(poiList => {
           this.poiList = poiList;
-      })
+      });
   }
   onPoiClicked(poi){
       this.selectedPoi = poi;
       this.showPoiDetails=true;
-      if(this.isMobileOrTablet){
+      if(this.isMobileOrTablet()){
           this.poiBottomSheetDetail = this._bottomSheet.open(BottomSheetPoiDetailComponent, {data: {poi}, hasBackdrop: false});
           this.poiBottomSheetDetail.afterDismissed().subscribe(()=>this.onDismissPoiDetail());
       }
