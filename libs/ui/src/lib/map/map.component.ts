@@ -9,6 +9,9 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
     private _poiList:Poi[];
+
+    @Input() private resetMapEventEmitter: EventEmitter<boolean>;
+
     @Input() set poiList(poiList:Poi[]){
     this._poiList = poiList;
     if(this._poiList){
@@ -24,7 +27,9 @@ export class MapComponent implements OnInit {
    
 
   ngOnInit(): void {
-      
+      if(this.resetMapEventEmitter){
+      this.resetMapEventEmitter.subscribe(()=> this.resetMap());
+    }
   }
 
   private initMap(poiList: Poi[]){
@@ -62,5 +67,9 @@ export class MapComponent implements OnInit {
       const poi = poiList.find(candidate => parseFloat(candidate.coordinates.longitude) === lng && parseFloat(candidate.coordinates.latitude) === lat);
       this.poiClicked.emit(poi);;
       map.flyTo(event.latlng, 14);
+  }
+
+  resetMap(){
+      this.map.flyTo(this.calculateCenter(this._poiList), 10);
   }
 }

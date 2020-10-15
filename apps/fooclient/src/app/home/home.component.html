@@ -1,8 +1,24 @@
-<mat-drawer-container class="drawer-container" [hasBackdrop]="false"> 
-    <mat-drawer mode="over" [opened]="showPoiDetails" class="side-drawer" (closedStart)="onDismissDrawer()">
-        <pocrepo-poi-detail [poi]="selectedPoi" class="drawer"></pocrepo-poi-detail>
-    </mat-drawer>
-    <mat-drawer-content class="content">
-        <pocrepo-map [poiList]="poiList" (poiClicked)="onPoiClicked($event)"></pocrepo-map>
-    </mat-drawer-content>
-</mat-drawer-container>
+<ng-container *ngTemplateOutlet="isMobileOrTablet() ? mobileview : desktopview"></ng-container>
+
+<ng-template #desktopview> 
+    <mat-drawer-container class="drawer-container" [hasBackdrop]="false"> 
+        <mat-drawer mode="over" [opened]="showPoiDetails" class="side-drawer" (closedStart)="onDismissPoiDetail()">
+            <div class="drawer-header">
+                <button mat-icon-button (click)="onDismissPoiDetail()">
+                    <mat-icon>navigate_before</mat-icon>
+                </button>
+            </div>
+            <mat-divider></mat-divider>
+            <pocrepo-poi-detail [poi]="selectedPoi" class="drawer"></pocrepo-poi-detail>
+        </mat-drawer>
+        <mat-drawer-content class="content">
+            <pocrepo-map [poiList]="poiList" (poiClicked)="onPoiClicked($event)" [resetMapEventEmitter]="resetMapEmitter"></pocrepo-map>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</ng-template>
+
+<ng-template #mobileview>
+    <div class="mobile-container">
+        <pocrepo-map [poiList]="poiList" (poiClicked)="onPoiClicked($event)" [resetMapEventEmitter]="resetMapEmitter"></pocrepo-map>
+    </div>
+</ng-template>

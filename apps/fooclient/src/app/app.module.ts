@@ -8,6 +8,8 @@ import {PoiService} from './poi.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 const ROUTES = [{path:"", component: HomeComponent}];
 
@@ -17,6 +19,8 @@ const ROUTES = [{path:"", component: HomeComponent}];
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
+    MatButtonModule,
+    MatIconModule,
     MatSidenavModule,
     HttpClientModule,
     UiModule
