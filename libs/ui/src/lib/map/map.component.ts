@@ -15,12 +15,16 @@ export class MapComponent implements OnInit {
         this.initMap(this._poiList);
       }
   }
+
+
+
   @Output() poiClicked: EventEmitter<Poi> = new EventEmitter<Poi>();
   map: L.Map;
   constructor() { }
    
 
   ngOnInit(): void {
+      
   }
 
   private initMap(poiList: Poi[]){
@@ -36,8 +40,8 @@ export class MapComponent implements OnInit {
       poiList.map(poi => L.marker(this.getPoiCoordinates(poi), {icon: L.icon({
         iconSize: [ 25, 41 ],
         iconAnchor: [ 13, 41 ],
-        iconUrl: 'leaflet/marker-icon.png',
-        shadowUrl: 'leaflet/marker-shadow.png'
+        iconUrl: 'marker-icon.png',
+        shadowUrl: 'marker-shadow.png'
         })})
       ).map(mark => mark.on('click', (event) => this.onMarkerClik(event,this.map,this._poiList)).addTo(this.map));
   }

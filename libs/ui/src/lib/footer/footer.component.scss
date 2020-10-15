@@ -4,15 +4,13 @@
     display:flex;
     flex-direction: row;
     align-items: center;
-    position: fixed;
+    position: absolute;
 }
 
 .footer-column{
     flex: 1 1 auto;
     text-align:center;
     display: flex;
-    
-    
     a{
         color:white;
         text-decoration: none;

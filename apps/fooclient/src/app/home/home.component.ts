@@ -18,9 +18,7 @@ export class HomeComponent implements OnInit {
           this.poiList = poiList;
       })
   }
-
   onPoiClicked(poi){
-      debugger;
       this.selectedPoi = poi;
       this.showPoiDetails=true;
   }

@@ -3,11 +3,19 @@
 }
 
 .drawer-container{
-
     height:100%;
 }
 
 .left-scrollbar{
     direction: rtl;
     overflow:auto;
+}
+
+.side-drawer{
+    width: 20vw;
+}
+
+.content{
+    overflow: hidden;
+    width: 100vw;
 }

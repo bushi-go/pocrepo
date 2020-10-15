@@ -23,7 +23,12 @@
             "aot": true,
             "assets": [
               "apps/fooclient/src/favicon.ico",
-              "apps/fooclient/src/assets"
+              "apps/fooclient/src/assets",
+              {
+                  "glob": "**/*",
+                  "input":"./node_modules/leaflet/dist/images",
+                  "output":"./apps/fooclient/src/assets/"
+              }
               
             ],
             "styles": [
@@ -158,7 +163,8 @@
             "aot": true,
             "assets": [
               "apps/barclient/src/favicon.ico",
-              "apps/barclient/src/assets"
+              "apps/barclient/src/assets",
+              "node_modules/leaflet/dist/images"
             ],
             "styles": [
               "apps/barclient/src/styles.scss"
@@ -199,7 +205,6 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-              
             "browserTarget": "barclient:build",
             "proxyConfig":"apps/barclient/proxy.conf.json",
             "port":4210
