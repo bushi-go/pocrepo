@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { MapComponent, UiModule } from '@pocrepo/ui';
-
+import { UiModule } from '@pocrepo/ui';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {PoiService} from './poi.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
-const ROUTES = [{path:"", component: MapComponent}];
+const ROUTES = [{path:"", component: HomeComponent}];
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -15,10 +17,12 @@ const ROUTES = [{path:"", component: MapComponent}];
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(ROUTES),
+    MatSidenavModule,
+    HttpClientModule,
     UiModule
   ],
   entryComponents:[],
-  providers: [],
+  providers: [PoiService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
