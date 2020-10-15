@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
       this.selectedPoi = poi;
       this.showPoiDetails=true;
       if(this.isMobileOrTablet){
-          this.poiBottomSheetDetail = this._bottomSheet.open(BottomSheetPoiDetailComponent, {data: {poi}});
+          this.poiBottomSheetDetail = this._bottomSheet.open(BottomSheetPoiDetailComponent, {data: {poi}, hasBackdrop: false});
           this.poiBottomSheetDetail.afterDismissed().subscribe(()=>this.onDismissPoiDetail());
       }
   }
