@@ -35,7 +35,8 @@ export class MapComponent implements OnInit {
   private initMap(poiList: Poi[]){
       const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        
       });
       this.map = L.map('map', {
           center: this.calculateCenter(poiList),
