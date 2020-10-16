@@ -45,8 +45,8 @@ export class MapComponent implements OnInit {
       poiList.map(poi => L.marker(this.getPoiCoordinates(poi), {icon: L.icon({
         iconSize: [ 25, 41 ],
         iconAnchor: [ 13, 41 ],
-        iconUrl: 'marker-icon.png',
-        shadowUrl: 'marker-shadow.png'
+        iconUrl: 'assets/marker-icon.png',
+        shadowUrl: 'assets/marker-shadow.png'
         })})
       ).map(mark => mark.on('click', (event) => this.onMarkerClik(event,this.map,this._poiList)).addTo(this.map));
   }
@@ -66,7 +66,7 @@ export class MapComponent implements OnInit {
       const lat = event.latlng.lat;
       const poi = poiList.find(candidate => parseFloat(candidate.coordinates.longitude) === lng && parseFloat(candidate.coordinates.latitude) === lat);
       this.poiClicked.emit(poi);;
-      map.flyTo(event.latlng, 14);
+      map.flyTo(event.latlng, 12);
   }
 
   resetMap(){

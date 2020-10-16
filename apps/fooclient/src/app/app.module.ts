@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const ROUTES = [{path:"", component: HomeComponent}];
 
@@ -23,7 +25,8 @@ const ROUTES = [{path:"", component: HomeComponent}];
     MatIconModule,
     MatSidenavModule,
     HttpClientModule,
-    UiModule
+    UiModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true })
   ],
   entryComponents:[],
   providers: [PoiService],

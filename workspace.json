@@ -27,9 +27,9 @@
               {
                   "glob": "**/*",
                   "input":"./node_modules/leaflet/dist/images",
-                  "output":"./apps/fooclient/src/assets/"
-              }
-              
+                  "output":"/assets/"
+              },
+              "apps/fooclient/src/manifest.webmanifest"
             ],
             "styles": [
               "apps/fooclient/src/styles.scss"
@@ -61,9 +61,11 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "11kb"
                 }
-              ]
+              ],
+              "serviceWorker":true,
+              "ngswConfigPath":"apps/fooclient/ngsw-config.json"
             }
           }
         },
@@ -196,9 +198,11 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "11kb"
                 }
-              ]
+              ],
+              "serviceWorker":true,
+              "ngswConfigPath":"apps/barclient/ngswConfigPath"
             }
           }
         },

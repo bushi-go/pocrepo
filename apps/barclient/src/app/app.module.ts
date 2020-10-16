@@ -6,6 +6,8 @@ import { MapComponent, UiModule } from '@pocrepo/ui';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -13,7 +15,8 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([{path:"", component: MapComponent}]),
-    UiModule
+    UiModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent],
