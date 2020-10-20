@@ -166,7 +166,11 @@
             "assets": [
               "apps/barclient/src/favicon.ico",
               "apps/barclient/src/assets",
-              "node_modules/leaflet/dist/images"
+              {
+                "glob": "**/*",
+                "input":"./node_modules/leaflet/dist/images",
+                "output":"/assets/"
+            }
             ],
             "styles": [
               "apps/barclient/src/styles.scss"
